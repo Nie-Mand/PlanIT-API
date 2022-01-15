@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToOne, JoinColumn, ManyToOne } from "typeorm";
 import User  from './user'
 @Entity()
 class Group extends BaseEntity {
@@ -6,9 +6,7 @@ class Group extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
-
-
-    @Column({ length: 50 })
+    @Column({ length: 50, unique: true })
     name: string;
 
     @Column({ length: 150 })
@@ -23,11 +21,9 @@ class Group extends BaseEntity {
     @Column()
     avatar: string;
 
-    @OneToOne(type => User)
-    @JoinColumn()
+    
+    @ManyToOne(type => User, user => user.groupsHeCreated)
     admin: User;
-
-
     // members: [],
     // invitedMembers: [],
     // : '',

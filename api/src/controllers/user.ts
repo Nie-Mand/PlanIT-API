@@ -6,8 +6,20 @@ export const getMe: RequestHandler = async (rq, rs) => {
 
     const me = await User.getMe(user)
 
+    if (!me)
+        return rs.status(404).end()
+
+    const data = {
+        id: me.id,
+        firstname: me.firstname,
+        lastname: me.lastname,
+        email: me.email,
+        isVerified: me.isVerified,
+        avatar: me.avatar,
+    }
+
     return rs.json({
-        me
+        data
     })
 }
 

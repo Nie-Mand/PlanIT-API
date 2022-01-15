@@ -1,4 +1,7 @@
 import user from './user'
+import group from './group'
+
 export default [
-    user
+    user,
+    group
 ]

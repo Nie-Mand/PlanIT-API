@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany } from "typeorm";
+import Group from "./group";
 
 @Entity()
 class User extends BaseEntity {
@@ -12,7 +13,7 @@ class User extends BaseEntity {
     @Column({ length: 50 })
     lastname: string;
 
-    @Column({ length: 50 })
+    @Column({ length: 50, unique: true })
     email: string;
 
     @Column()
@@ -25,8 +26,12 @@ class User extends BaseEntity {
     avatar: string;
 
 
+
+    @OneToMany(type => Group, group => group.admin)
+    groupsHeCreated: Group[]
+
+
     // groupsHeJoined: []
-    // groupsHeCreated: []
 
 }
 
