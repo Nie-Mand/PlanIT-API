@@ -1,14 +1,3 @@
-const group = {
-    name: 'Group 1',
-    description: '',
-    avatar: '',
-    members: [],
-    invitedMembers: [],
-    admin: '',
-    isPrivate: false,
-    isOpenInvite: false,
-    events: []
-}
 
 import Group from '../models/group'
 
@@ -43,7 +32,8 @@ export const create = (data: InputData, user) => {
     group.admin = user
     // group.members.push(user.id)
     return group.save()
-} 
+}
+
 export const update = (id, data, user) => {}
 export const kill = (id, user) => {}
 export const invite = (id, users, user) => {}

@@ -32,8 +32,9 @@ export const verifyUser = (user: User) => {
 
 
 export const getMe = (user) => {
-    return user
+    return User.findOne({ where: { id: user.id } })
 }
 
 export const update = (user, data) => {
+    // TODO: update user
 }

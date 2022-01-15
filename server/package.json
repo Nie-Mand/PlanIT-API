@@ -24,6 +24,7 @@
     "morgan": "^1.10.0",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
+    "socket.io": "^4.4.1",
     "typeorm": "^0.2.41"
   },
   "devDependencies": {

@@ -1,5 +1,3 @@
-
-
 import type { RequestHandler } from 'express'
 import * as Group from '../services/group'
 
