@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
-
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToOne, JoinColumn } from "typeorm";
+import User  from './user'
 @Entity()
 class Group extends BaseEntity {
 
@@ -23,10 +23,14 @@ class Group extends BaseEntity {
     @Column()
     avatar: string;
 
+    @OneToOne(type => User)
+    @JoinColumn()
+    admin: User;
+
 
     // members: [],
     // invitedMembers: [],
-    // admin: '',
+    // : '',
 
     // events: []
 
