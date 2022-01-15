@@ -19,7 +19,7 @@ class User extends BaseEntity {
     password: string;
 
     @Column()
-    iVerified: boolean;
+    isVerified: boolean;
 
     @Column()
     avatar: string;
