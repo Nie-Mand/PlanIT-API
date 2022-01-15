@@ -9,18 +9,16 @@ module.exports = {
         'spin-slow': 'spin 5s linear infinite',
       },
       colors: {
-        homeBg: '#DCE4F7',
+        homeBg: '#D3CEFF',
+        fontColor: "#15173F",
       },
       zIndex: {
         "-1": "-1",
       },
     },
     fontFamily: {
-      'sans': ['Helvetica', 'Arial', 'sans-serif'],
-      'carattere': ['Carattere', 'cursive'],
-      'sourceSerifPro': ['Source Serif Pro'],
-      "fontVollkorn": ['Vollkorn'],
-      'body': ['Open Sans'],
+      'poppins': ['Poppins', 'cursive'],
+      'comfortaa': ['Comfortaa', 'sans-serif'],
     }
   },
   plugins: [],

@@ -30,13 +30,8 @@ const cards = [
         title: 'Doing',
         cards: [],
       },
-      'list-4': {
-        id: 'list-4',
-        title: 'Done',
-        cards: [],
-      },
     },
-    listIds: ['list-1', 'list-2', 'list-3', 'list-4'],
+    listIds: ['list-1', 'list-2', 'list-3'],
   };
   
   export default data;
