@@ -22,8 +22,10 @@ jobs:
           npm i
       - name: Server >  Build Server
         run: |
+          ls
           cd server
-          npm run build
+          ls
+          # npm run build
       - name: Server >  Test if it works
         run: |
           cd server
