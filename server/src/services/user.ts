@@ -2,6 +2,23 @@ import User from '../models/user'
 import { avatar } from '../utils/avatar'
 
 
+export const getAll = async () => {
+    const users = await User.find()
+    return users
+}
+
+
+export const kill = async (id: any) => {
+    const user = await User.findOne({
+        where: {
+            id
+        }
+    })
+    if (user)
+        await User.remove(user)    
+}
+
+
 type EntryData = {
     firstname: string,
     lastname: string,

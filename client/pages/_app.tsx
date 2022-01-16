@@ -1,14 +1,17 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import Navbar from "../components/navbar"
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import Navbar from "../components/navbar";
+import { StoreProvider } from "../utlis/store";
+import { Toaster } from "react-hot-toast";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div>
+    <StoreProvider>
+      <Toaster />
       <Navbar />
       <Component {...pageProps} />
-    </div>
-  )
+    </StoreProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;

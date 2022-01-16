@@ -1,8 +1,16 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import type { NextPage } from "next";
+import Head from "next/head";
+import { useAuthenication } from "../utlis/store";
 
 const Home: NextPage = () => {
+  const { user, isAuthenticated, loading } = useAuthenication();
+
+  console.log(loading);
+
+  if (loading) return <h1>Loading</h1>;
+
+  if (!isAuthenticated) return null;
+
   return (
     <div>
       <Head>
@@ -11,9 +19,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 className="bg-homeBg text-white font-bold pl-64 px-4 h-screen">Hello World</h1>
+      <h1 className="bg-homeBg text-5xl font-bold pl-64 px-4 h-screen capitalize">
+        Hello, {user.firstname}
+      </h1>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

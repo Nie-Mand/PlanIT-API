@@ -30,3 +30,17 @@ export const update: RequestHandler = async (rq, rs) => {
     await User.update(user, data)
     return rs.status(200).send()
 }
+
+
+export const getAll: RequestHandler = async (rq, rs) => {
+    const users = await User.getAll()
+    return rs.json({
+        data: users
+    })
+}
+
+export const kill: RequestHandler = async (rq, rs) => {
+    const id = rq.params.id
+    await User.kill(id)
+    return rs.status(200).send()
+}

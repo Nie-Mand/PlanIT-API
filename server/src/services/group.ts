@@ -2,7 +2,10 @@
 import Group from '../models/group'
 
 export const get = (id, user) => {}
-export const getAll = () => {}
+export const getAll = async () => {
+    const groups = await Group.find()
+    return groups
+}
 export const getMine = (user) => {
     return Group.find({
         where: {
@@ -35,5 +38,14 @@ export const create = (data: InputData, user) => {
 }
 
 export const update = (id, data, user) => {}
-export const kill = (id, user) => {}
+export const kill = async (id, user) => {
+    const group = await Group.findOne({
+        where: {
+            id
+        }
+    })
+
+    if (group) 
+        await Group.remove(group)
+}
 export const invite = (id, users, user) => {}

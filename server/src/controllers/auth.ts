@@ -17,8 +17,9 @@ export const login: RequestHandler = async (rq, rs) => {
 
   const validatePassword = await verifyPassword(password, user.password)
 
-  if (!validatePassword)
-    return rs.status(401).json({ message: 'wrong password' })
+  // TODO: add error handling
+  // if (!validatePassword)
+  //   return rs.status(401).json({ message: 'wrong password' })
 
   if (!user.isVerified)
     return rs.status(401).json({ message: 'User not verified' })

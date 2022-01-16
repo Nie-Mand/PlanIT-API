@@ -16,7 +16,7 @@ export const getAll: RequestHandler = async (rq, rs) => {
         groups
     })
 }
-
+    
 export const getMine: RequestHandler = async (rq, rs) => {
     const user = (rq as any).user
     const groups = await Group.getMine(user)

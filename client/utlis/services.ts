@@ -5,8 +5,12 @@ const api = axios.create({
 })
 
 export const login = async (data: { email, password }) => {
-    const response = await api.post('/auth/login', data)
-    return response.data
+    try {
+        const response = await api.post('/auth/login', data)
+        return response.data
+    } catch (e: any) {
+        throw new Error(e.response.data.message);
+    }
 }
 
 export const signup = async (data: { name, email, password }) => {
@@ -14,3 +18,11 @@ export const signup = async (data: { name, email, password }) => {
     return response.data
 }
 
+export const getMe = async () => {
+    const response = await api.get('/user', {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    })
+    return response.data
+}
