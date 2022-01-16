@@ -19,6 +19,9 @@ jobs:
       - name: Server >  Install dependencies
         run: |
           cd server
+          npm i
+      - name: Server >  Build dependencies
+        run: |
           ls
 
 # - name: installing Dependencies
