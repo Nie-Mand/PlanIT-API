@@ -2,29 +2,29 @@ name: Deployment
 on: [push]
 jobs:
   build:
-		runs-on: ubuntu-latest
-		steps:
+    runs-on: ubuntu-latest
+    steps:
       # clone the repository
-			- uses: actions/checkout@v2
-				with: 
-					ref: prod
+      - uses: actions/checkout@v2
+        with:
+          ref: prod
 
       # installe node
-			- uses: actions/setup-node@v2
-				with: 
-					node-version: '16'
-					cache: 'npm'
-
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          cache: "npm"
       # Say Hi for now
-      - name: Server: Install dependencies
+      - name: Server >  Install dependencies
         run: |
           cd server
           ls
-			# - name: installing Dependencies
-			# run: npm i 
-			# - name: building
-			# run: npm run build
-			# - name: deploying
-			# run: echo etc
-			# - name: Done
-			# run: echo Done!
+
+# - name: installing Dependencies
+# run: npm i
+# - name: building
+# run: npm run build
+# - name: deploying
+# run: echo etc
+# - name: Done
+# run: echo Done!
