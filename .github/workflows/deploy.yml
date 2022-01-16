@@ -47,7 +47,8 @@ jobs:
           npm run build
       - name: Server >  Deploy Server
         run: |
-          heroku auth:whoami
+          cd server
+          ls
       - name: Server >  Done!
         run: |
           echo 🚀
