@@ -15,11 +15,16 @@ jobs:
           node-version: "16"
           cache: "npm"
           cache-dependency-path: "**/package-lock.json"
-      # Say Hi for now
+
+      - name: Server >  Preparing the Working Directory
+        run: |
+          mv -r server .
+          ls
+          # npm i
       - name: Server >  Install dependencies
         run: |
           cd server
-          npm i
+          # npm i
       - name: Server >  Build Server
         run: |
           ls
