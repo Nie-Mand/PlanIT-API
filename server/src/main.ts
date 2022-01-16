@@ -29,7 +29,7 @@ export default () => {
   
 
   const connected = () => {
-    server.listen(process.env.PORT, () => {
+    server.listen(process.env.PORT || 4000, () => {
         console.log(`Server 🚀 @${process.env.PORT}`)
       })
   }

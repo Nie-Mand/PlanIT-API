@@ -1,5 +1,18 @@
 name: Deployment
 on: [push]
+env:
+  JWT_SECRET: ${{ secrets.JWT_SECRET }}
+  SALT: ${{ secrets.SALT }}
+  COCKROACHDB_HOST: ${{ secrets.COCKROACHDB_HOST }}
+  COCKROACHDB_PORT: ${{ secrets.COCKROACHDB_PORT }}
+  COCKROACHDB_USERNAME: ${{ secrets.COCKROACHDB_USERNAME }}
+  COCKROACHDB_PASSWORD: ${{ secrets.COCKROACHDB_PASSWORD }}
+  COCKROACHDB_DATABASE: ${{ secrets.COCKROACHDB_DATABASE }}
+  COURIER_API_URI: ${{ secrets.COURIER_API_URI }}
+  COURIER_TOKEN: ${{ secrets.COURIER_TOKEN }}
+  COURIER_MAIL_EVENT: ${{ secrets.COURIER_MAIL_EVENT }}
+  COURIER_SMS_EVENT: ${{ secrets.COURIER_SMS_EVENT }}
+  COURIER_EMAIL_ME: ${{ secrets.COURIER_EMAIL_ME }}
 jobs:
   build:
     runs-on: ubuntu-latest
