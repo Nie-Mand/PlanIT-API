@@ -28,18 +28,29 @@ jobs:
           node-version: "16"
           cache: "npm"
           cache-dependency-path: "**/package-lock.json"
+
+      # heroku
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          justlogin: true
+
       - name: Server >  Install dependencies
         run: |
           cd server
-          npm i
+          npm ci
       - name: Server >  Build Server
         run: |
           cd server
           npm run build
-      - name: Server >  Test if it works
+      - name: Server >  Deploy Server
         run: |
-          cd server/build
-          npm run start
+          heroku auth:whoami
+      - name: Server >  Done!
+        run: |
+          echo 🚀
 
 # - name: installing Dependencies
 # run: npm i
