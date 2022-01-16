@@ -2,6 +2,8 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useAuthenication } from "../utlis/store";
 import Link from "next/link";
+import { FiSettings, FiBell } from "react-icons/fi";
+import { FaUserCircle } from "react-icons/fa";
 
 const Home: NextPage = () => {
   const { user, isAuthenticated, loading } = useAuthenication();
@@ -21,7 +23,21 @@ const Home: NextPage = () => {
       </Head>
 
       <div className="bg-homeBg pl-64 px-4 h-screen">
-        Hello, {user.firstname}
+        <div className="flex flex-row place-content-between pb-8 px-10 border-b-2 border-fontColor pt-8">
+          <div className="flex flex-col place-content-between text-fontColor">
+            <h1 className="text-3xl font-bold ">Orgaize tasks</h1>
+            <p className="text-lg font-comfortaa py-2">Here are all the tasks in the project. you will see organised tasks to<br /> each group member and who is responsible for completion.</p>
+          </div>
+
+          <input className="bg-white rounded-lg text-xl h-12 p-1 border-2 border-fontColor" placeholder="Search" />
+
+          <div className="flex flex-row space-x-4 pt-4">
+            <FiSettings className="text-2xl text-fontColor" />
+            <FiBell className="text-2xl text-fontColor" />
+            <FaUserCircle className="text-2xl text-fontColor" />
+          </div>
+        </div>
+        {/* Hello, {user.firstname} */}
         <Link href="/tasks" passHref>
           <div className="absolute bottom-6 right-6 cursor-pointer">
             <div className="bg-fontColor px-3 py-1 rounded-lg text-2xl font-medium text-white">Create Task</div>
