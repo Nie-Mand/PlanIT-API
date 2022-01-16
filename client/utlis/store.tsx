@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import useSwr from "swr";
 import { useRouter } from "next/router";
 import * as services from "./services";
 

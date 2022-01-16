@@ -26,3 +26,40 @@ export const getMe = async () => {
     })
     return response.data
 }
+
+
+export const getBoards = async () => {
+    const response = await api.get('/board', {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    })
+    return response.data
+}
+
+export const createBoard = async (data: { title }) => {
+    const response = await api.post('/board', data, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    })
+    return response.data
+}
+
+export const createTask = async (data: { board, content, isPriority }) => {
+    const response = await api.post('/task', data, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    })
+    return response.data
+}
+
+export const updateTask = async (id: number, data: { board }) => {
+    const response = await api.patch(`/task/${id}`, data, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    })
+    return response.data
+}

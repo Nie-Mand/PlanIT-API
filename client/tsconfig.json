@@ -17,6 +17,6 @@
 
     "noImplicitAny": false
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/calendar.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/calendar.tsx", "pages/tasks.jx"],
   "exclude": ["node_modules"]
 }
