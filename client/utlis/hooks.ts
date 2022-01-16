@@ -18,10 +18,12 @@ type Task = {
 export const useBoards = () => {
 
     const [boards, setBoards] = useState<Board[]>([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         services.getBoards().then(res => {
-            setBoards(res)
+            setBoards(res.boards)
+            setLoading(false)
         })
     }
         , [])
@@ -29,7 +31,7 @@ export const useBoards = () => {
 
     const createBoard = (data) => {
         services.createBoard(data).then(res => {
-            setBoards(boards.concat(res))
+            setBoards(boards.concat(res.board))
         })
     }
 
@@ -37,7 +39,7 @@ export const useBoards = () => {
         services.createTask(data).then(res => {
             setBoards(boards.map(board => {
                 if (board.id === data.board) {
-                    board.tasks.push(res)
+                    board.tasks.push({ content: data.content, id: res.task, board: data.board, isPriority: false })
                 }
                 return board
             }))
@@ -50,7 +52,8 @@ export const useBoards = () => {
     return {
         boards,
         createBoard,
-        createTask
+        createTask,
+        loading
     }
 
 

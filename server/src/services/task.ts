@@ -36,6 +36,10 @@ export const create = async (data: InputTask, user) => {
     board.addTask(task)
     
     await board.save()
+
+
+    return task.id
+
 }
 
 export const updateStatus = async (id, data, user) => {
@@ -72,6 +76,9 @@ export const updateStatus = async (id, data, user) => {
     await task.save()
     await board.save()
     await newBoard.save()
+
+
+    return task
 }
 
 export const kill = async (id, user) => {

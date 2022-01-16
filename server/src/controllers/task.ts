@@ -15,8 +15,10 @@ export const getAll: RequestHandler = async (rq, rs) => {
 export const create: RequestHandler = async (rq, rs) => {
     const user = (rq as any).user
     const data = rq.body
-    await Task.create(data, user)
-    return rs.status(201).send()
+    const task = await Task.create(data, user)
+    return rs.json({
+        task
+    })
 }
 
 

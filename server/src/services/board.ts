@@ -39,6 +39,7 @@ export const create = async (data: InputBoard, user) => {
   board.user = user
   board.tasks = []
   await board.save()
+  return board
 }
 
 

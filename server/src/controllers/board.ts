@@ -12,8 +12,11 @@ export const get: RequestHandler = async (rq, rs) => {
 export const create: RequestHandler = async (rq, rs) => {
     const user = (rq as any).user
     const data = rq.body
-    await Board.create(data, user)
-    return rs.status(200).end()
+    const board = await Board.create(data, user)
+    return rs.json({
+        board
+    })
+    
 }
 
 

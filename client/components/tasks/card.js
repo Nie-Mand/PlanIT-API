@@ -1,7 +1,7 @@
-import React from 'react';
-import { Paper } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import { Draggable } from 'react-beautiful-dnd';
+import React from "react";
+import { Paper } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { Draggable } from "react-beautiful-dnd";
 
 const useStyle = makeStyles((theme) => ({
   card: {
@@ -20,7 +20,7 @@ export default function Card({ card, index }) {
           {...provided.dragHandleProps}
           {...provided.draggableProps}
         >
-          <Paper className={classes.card}>{card.title}</Paper>
+          <Paper className={classes.card}>{card.content}</Paper>
         </div>
       )}
     </Draggable>
