@@ -41,6 +41,7 @@ const Login: NextPage = () => {
           <form
             className="flex flex-row pt-8 pb-4 font-comfortaa"
             onSubmit={handleLogin}
+            method="POST"
           >
             <input
               required
