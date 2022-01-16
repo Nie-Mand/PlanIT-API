@@ -17,6 +17,8 @@ export default () => {
 
   ws(server)
 
+
+
   app.use(cors())
   app.use(json())
   app.use(urlencoded({ extended: false }))
@@ -24,6 +26,9 @@ export default () => {
   app.use(morgan(':method :url :status (took :response-time ms)'))
 
   app.use(routes)
+
+
+  
 
 
   

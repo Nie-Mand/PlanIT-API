@@ -1,11 +1,11 @@
 import { Router } from 'express'
 import * as tasks from '../controllers/task'
-import { mw } from '../utils/auth'
+import { mw, loadMeMw  } from '../utils/auth'
 
 const router = Router()
 
-router.get('/', mw, tasks.getAll)
-router.post('/', mw, tasks.create)
-router.patch('/:id', mw, tasks.updateStatus)
+router.post('/', [mw, loadMeMw], tasks.create)
+router.patch('/:id', [mw, loadMeMw], tasks.updateStatus)
+router.delete('/:id', [mw, loadMeMw], tasks.kill)
 
 export default router

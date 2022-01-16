@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany } from "typeorm";
 import Group from "./group";
-
+import Board from './board'
 @Entity()
 class User extends BaseEntity {
 
@@ -25,8 +25,12 @@ class User extends BaseEntity {
     @Column()
     avatar: string;
 
-    @OneToMany(type => Group, group => group.admin)
+    @OneToMany(() => Group, group => group.admin)
     groupsHeCreated: Group[]
+
+
+    @OneToMany(() => Board, (board: Board) => board.user)
+    boards: Board[]
 
 
     // groupsHeJoined: []

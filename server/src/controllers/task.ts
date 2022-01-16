@@ -27,3 +27,11 @@ export const updateStatus: RequestHandler = async (rq, rs) => {
     await Task.updateStatus(id, data, user)
     return rs.status(200).send()
 }
+
+
+export const kill: RequestHandler = async (rq, rs) => {
+    const user = (rq as any).user
+    const id = rq.params.id
+    await Task.kill(id, user)
+    return rs.status(200).send()
+}
