@@ -42,6 +42,7 @@ export const StoreProvider = ({ children }) => {
       });
     } else {
       setUser(null);
+      setLoading(false);
     }
   }, [isAuthenticated]);
 
