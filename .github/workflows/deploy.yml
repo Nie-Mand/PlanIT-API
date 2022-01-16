@@ -20,8 +20,13 @@ jobs:
         run: |
           cd server
           npm i
-      - name: Server >  Build dependencies
+      - name: Server >  Build Server
         run: |
+          cd server
+          npm run build
+      - name: Server >  Test if it works
+        run: |
+          cd server
           ls
 
 # - name: installing Dependencies
